@@ -13,7 +13,8 @@
   "main": "index.js",
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "db": "docker-compose up --no-log-prefix",
+    "dev": "nodemon index.js"
   },
   "repository": {
     "type": "git",
