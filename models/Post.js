@@ -8,4 +8,5 @@ const Post = db.sequelize.define('postagens', {
         type: db.Sequelize.TEXT
     }
 })
-Post.sync({force: true})
+// Post.sync({force: true});
+module.exports = Post;

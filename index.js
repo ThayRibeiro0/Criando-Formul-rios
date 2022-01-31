@@ -15,19 +15,22 @@ app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
 
 //Rotas
-app.get('/', (req,res)=>{ 
-    res.render('home');
+app.get('/', (req,res)=> { 
+    Post.findAll().then(posts => {
+        console.log(posts);
+        res.render('home', { posts: posts });
+    })
 })
 
-app.get('/cad', (req,res)=>{ 
-    res.render('formulario');
+app.get('/cad', (req,res)=> { 
+    res.render('layouts/formulario');
 })
 
 app.post('/add', (req,res)=>{ 
     Post.create({
         titulo: req.body.titulo,
         conteudo: req.body.conteudo
-    }).than(function(){
+    }).then(function(){
         res.redirect('/')
     }).catch(function(erro){
         res.send("Hove um erro: " + erro)
