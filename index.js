@@ -22,8 +22,8 @@ app.get('/', function (req, res){
     })    
 })
 
-app.get('/cad', function(req, res){ 
-    res.render('formulario');
+app.post('/cad', function(req, res){ 
+    res.send('ROTA DE CADASTRO');
 })
 
 app.post('/add', function(req,res){ 
