@@ -15,18 +15,18 @@ app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
 
 //Rotas
-app.get('/', (req,res)=> { 
-    Post.findAll().then(posts => {
-        console.log(posts);
-        res.render('home', { posts: posts });
-    })
+
+app.get('/', function (req, res){ 
+    Post.findAll().then(function(posts){
+        res.render('home', {posts: posts})
+    })    
 })
 
-app.get('/cad', (req,res)=> { 
-    res.render('layouts/formulario');
+app.get('/cad', function(req, res){ 
+    res.render('formulario');
 })
 
-app.post('/add', (req,res)=>{ 
+app.post('/add', function(req,res){ 
     Post.create({
         titulo: req.body.titulo,
         conteudo: req.body.conteudo
