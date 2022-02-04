@@ -1,7 +1,9 @@
 <h1>Lista de posts: </h1>
-
 {{#each posts}}
+    {{#dataValues}}
     <h1>{{titulo}}</h1>
     <p>{{conteudo}}</p>
+    {{/dataValues}}
     <hr>
-{{/each}
+{{/each}}
+

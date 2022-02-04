@@ -3,6 +3,7 @@ const { engine } = require('express-handlebars');
 const app = express();
 const bodyParser = require('body-parser')
 const Post = require('./models/Post')
+console.clear 
 
 //Config
 //Template Engine
@@ -18,12 +19,13 @@ app.use(bodyParser.json())
 
 app.get('/', function (req, res){ 
     Post.findAll().then(function(posts){
+        console.log(posts);
         res.render('home', {posts: posts})
     })    
 })
 
-app.post('/cad', function(req, res){ 
-    res.send('ROTA DE CADASTRO');
+app.get('/cad', function(req, res){ 
+    res.render('formulario.handlebars');
 })
 
 app.post('/add', function(req,res){ 
